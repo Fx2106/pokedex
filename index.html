@@ -1,13 +1,74 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pokedex</title>
+    <meta
+      name="description"
+      content="Explora los primeros 151 Pokémon con esta Pokédex."
+    />
+    <title>Pokédex | Async Odyssey</title>
   </head>
+
   <body>
-    <div id="app"></div>
+    <main class="app-shell">
+      <header class="hero">
+        <p class="eyebrow">ASYNC ODYSSEY · POKEAPI</p>
+        <h1>Poké<span>dex</span></h1>
+        <p class="hero-description">
+          Descubre, busca y filtra tus Pokémon favoritos.
+        </p>
+      </header>
+
+      <section class="controls" aria-label="Buscar Pokémon">
+        <form id="search-form" class="search-form">
+          <input
+            id="search-input"
+            type="search"
+            placeholder="Busca por nombre o número..."
+            aria-label="Buscar Pokémon"
+            autocomplete="off"
+          />
+          <button type="submit" class="primary-button">Buscar</button>
+        </form>
+
+        <div class="filter-row">
+          <label for="type-filter">Tipo de Pokémon</label>
+
+          <select id="type-filter">
+            <option value="all">Todos los tipos</option>
+          </select>
+
+          <button id="clear-button" class="secondary-button" type="button">
+            Limpiar filtros
+          </button>
+        </div>
+      </section>
+
+      <section class="results-section">
+        <div class="results-heading">
+          <div>
+            <h2>Pokémon</h2>
+            <p id="loading-status" role="status" aria-live="polite">
+              Preparando Pokédex...
+            </p>
+          </div>
+
+          <p id="collection-stats" class="collection-stats"></p>
+        </div>
+
+        <div id="pokemon-grid" class="pokemon-grid"></div>
+
+        <button id="retry-button" class="secondary-button retry-button" hidden>
+          Volver a intentar
+        </button>
+      </section>
+
+      <footer class="footer">
+        Datos e imágenes proporcionados por PokeAPI.
+      </footer>
+    </main>
+
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
